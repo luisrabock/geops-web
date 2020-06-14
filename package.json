@@ -1,5 +1,5 @@
 {
-    "name": "geops-web",
+    "name": "nearby-web",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
