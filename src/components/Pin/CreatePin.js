@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
-import { GraphQLClient } from 'graphql-request';
 
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -13,8 +12,10 @@ import SaveIcon from '@material-ui/icons/SaveTwoTone';
 
 import context from '../../contexts/context';
 import { CREATE_PIN_MUTATION } from '../../graphql/mutations';
+import { useClient } from '../../services/services';
 
 const CreatePin = ({ classes }) => {
+    const client = useClient();
     const { state, dispatch } = useContext(context);
     const [title, setTitle] = useState('');
     const [image, setImage] = useState('');
@@ -25,13 +26,6 @@ const CreatePin = ({ classes }) => {
         e.preventDefault();
         try {
             setSubmitting(true);
-            const idToken = window.gapi.auth2
-                .getAuthInstance()
-                .currentUser.get()
-                .getAuthResponse().id_token;
-            const client = new GraphQLClient('http://localhost:4000/graphql', {
-                headers: { authorization: idToken },
-            });
             const url = await handleImageUpload();
 
             const { latitude, longitude } = state.draft;
