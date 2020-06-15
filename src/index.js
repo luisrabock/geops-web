@@ -4,8 +4,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import App from './pages/App';
 import Splash from './pages/Splash';
+import ProtectedRoute from './routes/ProtectedRoute';
 import appContext from './contexts/context';
-import { reducer } from './contexts/reducers/appReducer';
+import { reducer } from './reducers/appReducer';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 import * as serviceWorker from './serviceWorker';
@@ -17,7 +18,7 @@ const Root = () => {
         <Router>
             <appContext.Provider value={{ state, dispatch }}>
                 <Switch>
-                    <Route exact path="/" component={App} />
+                    <ProtectedRoute exact path="/" component={App} />
                     <Route path="/login" component={Splash} />
                 </Switch>
             </appContext.Provider>
