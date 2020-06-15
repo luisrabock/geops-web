@@ -22,7 +22,9 @@ const Header = ({ classes }) => {
                             variant="h6"
                             color="inherit"
                             noWrap
-                        ></Typography>
+                        >
+                            NearBy
+                        </Typography>
                     </div>
                     {currentUser && (
                         <div className={classes.grow}>
@@ -54,7 +56,7 @@ const styles = theme => ({
     },
     icon: {
         marginRight: theme.spacing.unit,
-        color: 'green',
+        color: 'white ',
         fontSize: 45,
     },
     mobile: {
