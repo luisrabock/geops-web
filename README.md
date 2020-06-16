@@ -23,6 +23,8 @@
   
 With NearBy you can mark places on the map, add photos and comments in those locations.
 
+The core of the project was made with react, graphql, apollo and mapbox ❤️
+
 
 ## 🚀&nbsp; Installation and Documentation
 
