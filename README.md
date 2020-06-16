@@ -1,68 +1,68 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  
 
-## Available Scripts
+<br/>
+<p align="center">
+    NearBy 🗺️
+</p>
 
-In the project directory, you can run:
+<br/>
+<p align="center">
+<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/luisrabock/nearby-web">
+<img alt="GitHub language count" src="https://img.shields.io/github/languages/count/luisrabock/nearby-web?style=flat-square">
+<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/luisrabock/nearby-web?color=blue">
+ <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/luisrabock/nearby-web?style=flat-square">
+ <img alt="GitHub" src="https://img.shields.io/github/license/luisrabock/nearby-web?color=blue&style=flat-square">
+<img alt="GitHub issues" src="https://img.shields.io/github/issues-raw/luisrabock/nearby-web?color=red&style=flat-square">
+</p>
+<br/>
 
-### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+  
+ 
+  
+With NearBy you can mark places on the map, add photos and comments in those locations.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚀&nbsp; Installation and Documentation
 
-### `npm run build`
+You need to install  [Node.js](https://nodejs.org/en/download/)  and  [Npm]([https://www.npmjs.com/](https://www.npmjs.com/))  first.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Clone repo: [https://github.com/luisrabock/nearby-web](https://github.com/luisrabock/nearby-web)
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+🧪 **Development environment**:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+In the root folder you need install the dependencies:
 
-### `npm run eject`
+```yarn install```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Start server:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```yarn dev```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Youd need   two environment variables:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```REACT_APP_MAP_TOKEN```      You can generate this token by making an account at https://www.mapbox.com/ 
 
-## Learn More
+```OAUTH_CLIENT_ID```   You achieve this by creating a client id with OAuth2
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Now application is running!!
 
-### Code Splitting
+## ❤️&nbsp; Community and Contributions
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Whether you are helping fixing bugs, proposing new feature, improving the app . **I love to have you as part of the project**.
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## 📫&nbsp; Have a question? Want to chat? Ran into a problem?
 
-### Making a Progressive Web App
+  
+Glad to help you. My e-mail account is the best form of contact: **luis@rocketlab.com.br** .
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Advanced Configuration
+## 🤝&nbsp; Found a bug? Missing a specific feature?
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Feel free to **file a new issue** with a respective title and description on the the [NearBy](https://github.com/luisrabock/nearby-web/issues) repository. If you already found a solution to your problem, **i would love to review your pull request**!
 
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## 📘&nbsp; License
+NearBy content management system is released under the under terms of the [MIT License](LICENSE).
