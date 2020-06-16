@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import ReactMapGl, { NavigationControl, Marker, Popup } from 'react-map-gl';
+import { Subscription } from 'react-apollo';
+import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMediaQuery';
 import { withStyles } from '@material-ui/core/styles';
 import differenceInMinuts from 'date-fns/difference_in_minutes';
 import Button from '@material-ui/core/Button';
@@ -10,6 +12,11 @@ import PinIcon from './PinIcon';
 import Blog from './Blog';
 import context from '../contexts/context';
 import { GET_PINS_QUERY } from '../graphql/queries';
+import {
+    PIN_UPDATED_SUBSCRIPTION,
+    PIN_DELETED_SUBSCRIPTION,
+    PIN_ADDED_SUBSCRIPTION,
+} from '../graphql/subscriptions';
 import { DELETE_PIN_MUTATION } from '../graphql/mutations';
 
 const INITIAL_VIEWPORT = {
@@ -19,8 +26,9 @@ const INITIAL_VIEWPORT = {
 };
 
 const Map = ({ classes }) => {
-    const client = useClient();
+    const mobileSize = useMediaQuery('(max-width: 650px)');
     const { state, dispatch } = useContext(context);
+    const client = useClient();
 
     useEffect(() => {
         getPins();
@@ -34,6 +42,12 @@ const Map = ({ classes }) => {
     }, []);
 
     const [popup, setPopup] = useState(null);
+
+    useEffect(() => {
+        const pinExists =
+            popup && state.pins.findIndex(pin => pin._id === popup._id > -1);
+        if (!pinExists) setPopup(null);
+    }, []);
 
     const getPins = async () => {
         const { getPins } = await client.request(GET_PINS_QUERY);
@@ -71,6 +85,7 @@ const Map = ({ classes }) => {
     };
 
     const handleSelectPin = pin => {
+        console.log('pin..', pin);
         setPopup(pin);
         dispatch({ type: 'SET_PIN', payload: pin });
     };
@@ -85,7 +100,7 @@ const Map = ({ classes }) => {
         setPopup(null);
     };
     return (
-        <div className={classes.root}>
+        <div className={!mobileSize ? classes.root : classes.rootMobile}>
             <ReactMapGl
                 width="100vw"
                 height="calc(100vh - 64px)"
@@ -168,6 +183,30 @@ const Map = ({ classes }) => {
                     </Popup>
                 )}
             </ReactMapGl>
+            <Subscription
+                subscription={PIN_ADDED_SUBSCRIPTION}
+                onSubscriptionData={({ subscriptionData }) => {
+                    const { pinAdded } = subscriptionData.data;
+                    console.log({ pinAdded });
+                    dispatch({ type: 'CREATE_PIN', payload: pinAdded });
+                }}
+            />
+            <Subscription
+                subscription={PIN_UPDATED_SUBSCRIPTION}
+                onSubscriptionData={({ subscriptionData }) => {
+                    const { pinUpdated } = subscriptionData.data;
+                    console.log({ pinUpdated });
+                    dispatch({ type: 'CREATE_COMMENT', payload: pinUpdated });
+                }}
+            />
+            <Subscription
+                subscription={PIN_DELETED_SUBSCRIPTION}
+                onSubscriptionData={({ subscriptionData }) => {
+                    const { pinDeleted } = subscriptionData.data;
+                    console.log({ pinDeleted });
+                    dispatch({ type: 'DELETE_PIN', payload: pinDeleted });
+                }}
+            />
             <Blog />
         </div>
     );

@@ -10,12 +10,14 @@ export const useClient = () => {
     const [idToken, setIdToken] = useState('');
 
     useEffect(() => {
-        const idToken = window.gapi.auth2
+        const token = window.gapi.auth2
             .getAuthInstance()
             .currentUser.get()
             .getAuthResponse().id_token;
-        setIdToken(idToken);
+        setIdToken(token);
     }, []);
-
-    return new GraphQLClient(BASE_URL, { headers: { authorization: idToken } });
+    console.log('idToken..', idToken);
+    return new GraphQLClient(BASE_URL, {
+        headers: { authorization: idToken },
+    });
 };

@@ -5,6 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMediaQuery';
 import AddAPhotoIcon from '@material-ui/icons/AddAPhotoTwoTone';
 import LandscapeIcon from '@material-ui/icons/LandscapeOutlined';
 import ClearIcon from '@material-ui/icons/Clear';
@@ -15,6 +16,7 @@ import { CREATE_PIN_MUTATION } from '../../graphql/mutations';
 import { useClient } from '../../services/services';
 
 const CreatePin = ({ classes }) => {
+    const mobileSize = useMediaQuery('(max-width: 650px)');
     const client = useClient();
     const { state, dispatch } = useContext(context);
     const [title, setTitle] = useState('');
@@ -30,12 +32,8 @@ const CreatePin = ({ classes }) => {
 
             const { latitude, longitude } = state.draft;
             const values = { title, image: url, content, latitude, longitude };
-            const { createPin } = await client.request(
-                CREATE_PIN_MUTATION,
-                values,
-            );
+            await client.request(CREATE_PIN_MUTATION, values);
             handleDeleteDraft();
-            dispatch({ type: 'CREATE_PIN', payload: createPin });
         } catch (err) {
             setSubmitting(false);
             console.error('err..', err);
@@ -101,7 +99,7 @@ const CreatePin = ({ classes }) => {
                     name="content"
                     label="Content"
                     multiline
-                    rows="6"
+                    rows={mobileSize ? '3' : '6'}
                     margin="normal"
                     fullWidth
                     variant="outlined"
