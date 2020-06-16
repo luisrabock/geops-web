@@ -32,6 +32,9 @@ You need to install  [Node.js](https://nodejs.org/en/download/)  and  [Npm]([htt
 
 Clone repo: [https://github.com/luisrabock/nearby-web](https://github.com/luisrabock/nearby-web)
 
+Follow the API installation instructions at: https://github.com/luisrabock/nearby-api
+
+
 🧪 **Development environment**:
 
 In the root folder you need install the dependencies:
