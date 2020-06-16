@@ -23,12 +23,17 @@
   
 With NearBy you can mark places on the map, add photos and comments in those locations.
 
+The core of the project was made with react, graphql, apollo and mapbox ❤️
+
 
 ## 🚀&nbsp; Installation and Documentation
 
 You need to install  [Node.js](https://nodejs.org/en/download/)  and  [Npm]([https://www.npmjs.com/](https://www.npmjs.com/))  first.
 
 Clone repo: [https://github.com/luisrabock/nearby-web](https://github.com/luisrabock/nearby-web)
+
+Follow the API installation instructions at: https://github.com/luisrabock/nearby-api
+
 
 🧪 **Development environment**:
 
