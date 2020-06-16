@@ -13,7 +13,6 @@ const Signout = ({ classes }) => {
 
     const onSignout = () => {
         dispatch({ type: 'SIGNOUT_USER' });
-        console.log('Signout');
     };
     return (
         <GoogleLogout

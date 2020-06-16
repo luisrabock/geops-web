@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
@@ -13,7 +13,6 @@ import context from '../../contexts/context';
 const PinContent = ({ classes }) => {
     const { state } = useContext(context);
     const { title, content, author, createdAt, comments } = state.currentPin;
-    state && console.log(state.currentPin);
     return (
         <div className={classes.root}>
             <Typography

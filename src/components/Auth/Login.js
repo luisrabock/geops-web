@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { GraphQLClient, ClientError } from 'graphql-request';
+import { GraphQLClient } from 'graphql-request';
 import { GoogleLogin } from 'react-google-login';
 import Typography from '@material-ui/core/Typography';
 
@@ -17,7 +17,6 @@ const Login = ({ classes }) => {
                 headers: { authorization: idToken },
             });
             const { me } = await client.request(ME_QUERY);
-            console.log('me..', me);
 
             dispatch({ type: 'LOGIN_USER', payload: me });
             dispatch({

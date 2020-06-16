@@ -9,7 +9,6 @@ import Typography from '@material-ui/core/Typography';
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
 
 const Comments = ({ comments, classes }) => {
-    console.log('comments', comments);
     return (
         <List className={classes.root}>
             {comments.map((comment, i) => (

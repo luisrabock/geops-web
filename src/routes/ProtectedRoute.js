@@ -5,7 +5,6 @@ import context from '../contexts/context';
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
     const { state } = useContext(context);
-    console.log(' !state.isAuth..', !state.isAuth);
     return (
         <Route
             render={props =>

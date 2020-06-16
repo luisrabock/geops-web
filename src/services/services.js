@@ -16,7 +16,6 @@ export const useClient = () => {
             .getAuthResponse().id_token;
         setIdToken(token);
     }, []);
-    console.log('idToken..', idToken);
     return new GraphQLClient(BASE_URL, {
         headers: { authorization: idToken },
     });

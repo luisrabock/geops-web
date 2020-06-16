@@ -70,11 +70,13 @@ export const reducer = (state, { type, payload }) => {
             );
             if (state.currentPin) {
                 const isCurrentPin = deletedPin._id === state.currentPin._id;
-                return {
-                    ...state,
-                    pins: filteredPins,
-                    currentPin: null,
-                };
+                if (isCurrentPin) {
+                    return {
+                        ...state,
+                        pins: filteredPins,
+                        currentPin: null,
+                    };
+                }
             }
             return {
                 ...state,
