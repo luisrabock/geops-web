@@ -13,9 +13,11 @@ const Login = ({ classes }) => {
     const onSuccess = async googleUser => {
         try {
             const idToken = googleUser.getAuthResponse().id_token;
+            console.log('idToken..', idToken);
             const client = new GraphQLClient(BASE_URL, {
                 headers: { authorization: idToken },
             });
+            console.log('client..', client);
             const { me } = await client.request(ME_QUERY);
 
             dispatch({ type: 'LOGIN_USER', payload: me });
@@ -46,7 +48,7 @@ const Login = ({ classes }) => {
                 Welcome
             </Typography>
             <GoogleLogin
-                clientId={process.env.REACT_APP_OAUTH_CLIENT_ID}
+                clientId="410656241595-vvkpfdfsdl3428g4lkc2bloq6gbnj9je.apps.googleusercontent.com"
                 onFailure={onFailure}
                 onSuccess={onSuccess}
                 isSignedIn={true}

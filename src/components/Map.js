@@ -101,7 +101,7 @@ const Map = ({ classes }) => {
                 width="100vw"
                 height="calc(100vh - 64px)"
                 mapStyle="mapbox://sprites/mapbox/streets-v8"
-                mapboxApiAccessToken={process.env.REACT_APP_MAP_TOKEN}
+                mapboxApiAccessToken="pk.eyJ1IjoibHVpc3JhYm9jayIsImEiOiJja2JnaGxhNzIxNXViMm9vMnlwbThkdWJ6In0.tLNFu3G3AK1zdPQrpHoDQg"
                 onViewportChange={newViewport => setViewport(newViewport)}
                 {...viewport}
                 onClick={handleClickMap}
