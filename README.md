@@ -25,6 +25,8 @@ With NearBy you can mark places on the map, add photos and comments in those loc
 
 The core of the project was made with react, graphql, apollo and mapbox ❤️
 
+Runtime app: https://nearby-web.vercel.app/
+
 
 ## 🚀&nbsp; Installation and Documentation
 
